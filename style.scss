@@ -1,0 +1,21 @@
+@mixin ring ($widthHeight, $color) {
+  width: $widthHeight;
+  height: $widthHeight;
+  border: $widthHeight/8 solid $color;
+  border-radius: 50%;
+  box-shadow: $widthHeight/90 $widthHeight/90 $widthHeight/90 0px darken($color, 10%),
+}
+
+.ring1and2 {
+  @include ring(40px, #a84d10);
+}
+
+.ring3 {
+  @include ring(240px, #ba9e18);
+}
+
+@for $i from 1 through 6 {
+  .the6Rings:nth-of-type(#{$i}) {
+    @include ring($i*10px,  #313130 );
+  }
+}
